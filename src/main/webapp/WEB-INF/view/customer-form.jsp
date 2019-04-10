@@ -27,6 +27,8 @@
     <h3>Save Customer</h3>
 
     <form:form action="saveCustomer" modelAttribute="customer" method="post">
+        <form:hidden path="id"/>
+
         <table>
             <tbody>
             <tr>
@@ -38,8 +40,8 @@
                 <td><form:input id="ln" path="lastName"/></td>
             </tr>
             <tr>
-                <td><label for="fn">Email:</label></td>
-                <td><form:input id="fn" path="email"/></td>
+                <td><label for="email">Email:</label></td>
+                <td><form:input id="email" path="email"/></td>
             </tr>
             <tr>
                 <td><label></label></td>
