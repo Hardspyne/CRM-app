@@ -1,1 +1,1 @@
-<jsp:forward page="/customer/list"/>
+<% response.sendRedirect("customer/list"); %>
