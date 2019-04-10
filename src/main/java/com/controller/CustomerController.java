@@ -1,12 +1,13 @@
 package com.controller;
 
-import com.dao.CustomerDAO;
 import com.entity.Customer;
 import com.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -32,5 +33,12 @@ public class CustomerController {
         model.addAttribute("customer", customer);
 
         return "customer-form";
+    }
+
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+        customerService.saveCustomer(customer);
+
+        return "redirect:/customer/list";
     }
 }
