@@ -19,7 +19,7 @@ public class CustomerController {
     @RequestMapping("/list")
     public String listCustomers(Model model) {
         List<Customer> customers = customerDAO.getCustomers();
-        model.addAttribute(customers);
+        model.addAttribute("customers", customers);
 
         return "list-customers";
     }
