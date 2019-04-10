@@ -2,23 +2,25 @@
 <html>
 <head>
     <title>listUsers</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
 </head>
 <body>
-<div>
-    <div>
+<div class="wrapper">
+    <div class="header">
         <h2>CRM - Customer Relationship Manager</h2>
     </div>
 </div>
 
-<div>
-    <div>
-
+<div class="container">
+    <div class="content">
         <table>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
             </tr>
+
             <c:forEach var="customer" items="${customers}">
 
                 <tr>
@@ -29,7 +31,6 @@
 
             </c:forEach>
         </table>
-
     </div>
 </div>
 </body>
