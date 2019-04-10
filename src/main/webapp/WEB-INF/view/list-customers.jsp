@@ -14,6 +14,11 @@
 
 <div class="container">
     <div class="content">
+
+        <input title="button" value="Add Customer" class="add-button"
+               onclick="window.location.href='showFormForAdd';return false;"
+        />
+
         <table>
             <tr>
                 <th>First Name</th>
