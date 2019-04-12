@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: dwe
@@ -20,9 +21,16 @@
 <div class="wrapper">
     <div class="header">
         <h2>CRM - Customer Relationship Manager</h2>
+        <div>
+            <b style="color: white;margin-right: 15px">Hello, <security:authentication
+                    property="principal.username"/>!</b>
+            <form:form style="display: inline-block;margin: 0" method="post"
+                       action="${pageContext.request.contextPath}/logout">
+                <input class="add-button" type="submit" value="logout">
+            </form:form>
+        </div>
     </div>
 </div>
-
 <div class="container">
     <h3>Save Customer</h3>
 
@@ -54,7 +62,7 @@
     <div style="clear: both"></div>
 
     <p>
-        <a href="${pageContext.request.contextPath}/customer/list">Back to list</a>
+        <a class="add-button" href="${pageContext.request.contextPath}/customer/list">Back to list</a>
     </p>
 </div>
 </body>

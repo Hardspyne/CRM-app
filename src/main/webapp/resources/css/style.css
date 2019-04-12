@@ -7,29 +7,45 @@ html, body {
 
 table {
     border-collapse: collapse;
-    border-bottom: 1px solid gray;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
-    width: 72%;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+
+}
+
+th:nth-child(1) {
+    border-top-left-radius: 10px;
+}
+
+th:nth-child(4) {
+    border-top-right-radius: 10px;
 }
 
 th {
-    border-bottom: 1px solid gray;
-    background: none repeat scroll 0 0 #016b12;
+    background: none repeat scroll 0 0 #009933;
     padding: 10px;
     color: #FFFFFF;
 }
 
 tr {
-    border-top: 1px solid gray;
     text-align: center;
 }
 
 tr:nth-child(even) {
-    background: #FFFFFF
+    background: #f8f8f8;
 }
 
 tr:nth-child(odd) {
-    background: #BBBBBB
+    background: #BBBBBB;
+}
+
+tr:last-child td:nth-child(1) {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:nth-child(4) {
+    border-bottom-right-radius: 10px;
 }
 
 .wrapper {
@@ -38,21 +54,25 @@ tr:nth-child(odd) {
 }
 
 .header {
-    width: 70%;
-    background: #016b12;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background: #009933;
     margin-top: 0px;
-    padding: 15px 0px 15px 15px;
+    padding: 15px 15px 15px 15px;
 }
 
 .header h2 {
-    width: 100%;
-    margin: auto;
+    margin: 0;
     color: #FFFFFF;
 }
 
 .container {
     width: 100%;
-    margin: auto
 }
 
 .container h3 {
@@ -65,12 +85,12 @@ tr:nth-child(odd) {
 
 .add-button {
     border: 1px solid #666;
+    max-width: 110px;
     border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
-    width: 120px;
     padding: 5px 10px;
-
-    margin-bottom: 15px;
+    text-decoration: none;
+    color: black;
     background: #cccccc;
 }
