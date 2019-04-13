@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>Denied Page</title>
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
 <div class="wrapper">
