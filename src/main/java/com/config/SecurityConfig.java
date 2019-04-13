@@ -23,8 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests()
+        //disable crsf only for easy testing rest api in postman
+        http.
+                csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/").hasAnyRole("GUEST", "MANAGER", "ADMIN")
                 .antMatchers("/customer/list").hasAnyRole("ADMIN", "GUEST", "MANAGER")
                 .antMatchers("/customer/showFormForAdd").hasAnyRole("ADMIN,MANAGER")
