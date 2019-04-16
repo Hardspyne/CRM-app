@@ -1,0 +1,48 @@
+DROP DATABASE  IF EXISTS `web_customer_tracker`;
+CREATE DATABASE  IF NOT EXISTS `web_customer_tracker` DEFAULT CHARACTER SET utf8;
+USE `web_customer_tracker`;
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARACTER SET = utf8;
+
+LOCK TABLES `customer` WRITE;
+	INSERT INTO `customer` VALUES
+		(1,'Andrew','Adams','david@google.com'),
+		(2,'Aleksandr','Doe','john@mail.ru'),
+		(3,'John','Rao','ajay@yandex.ru'),
+		(4,'Kate','Public','mary@google.com'),
+		(5,'Max','Dixon','max@yahoo.com'),
+        (6,'Mary','Jay','mjay@google.com');
+UNLOCK TABLES;
+
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(68) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `users`
+VALUES
+('guest','{bcrypt}$2a$04$Z4ZOiRuJmf2E8JV1CTKI/u.K9pSXGwGZdK0aJGQDwUAPKlJsQJ0Fa',1),
+('manager','{bcrypt}$2a$04$sTOAT6WeYCjBEGEPKLUftul46Tehdyp.Pg1nYKM2adZR2by7XXkea',1),
+('admin','{bcrypt}$2a$04$7QORZYtDeJ1MimGn7xtI5eEfYZn.V8s/.lN5avb9qBFSwxwLLyBcC',1);
+
+CREATE TABLE `authorities` (
+  `username` varchar(50) NOT NULL,
+  `authority` varchar(50) NOT NULL,
+  UNIQUE KEY `authorities_idx_1` (`username`,`authority`),
+  CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`))
+  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `authorities`
+VALUES
+('guest','ROLE_GUEST'),
+('manager','ROLE_MANAGER'),
+('admin','ROLE_ADMIN');
