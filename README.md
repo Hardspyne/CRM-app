@@ -28,7 +28,7 @@ You can view, add, delete, and update customer information depending on your rol
      - **Admin** can also delete customers. Login: ***admin, password: admin***
  2. You can also use REST api: 
     - Examples:
-    >   - list of customers: GET http://localhost:8080/crmApp/api/customers
+    >   - List of customers: GET http://localhost:8080/crmApp/api/customers
     >   - Customer with specific id: GET http://localhost:8080/crmApp/api/customers/3
     >   - Add customer(need request body): POST http://localhost:8080/crmApp/api/customers
     >   - Update Customer(need request body): PUT http://localhost:8080/crmApp/api/customers/3
